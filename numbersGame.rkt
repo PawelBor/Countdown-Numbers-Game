@@ -13,6 +13,12 @@
 (define (inp-rand x y)
  (random x y))
 
+;make list of all basic arithmetic operations
+;permutate all basic arithmetic operations
+(define operList '(+ - / *))
+(define arithmetic-op
+  (permutations operList))
+
 ;[1]
 ;Select random element from a list.
 ;define list "rand-element".
