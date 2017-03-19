@@ -54,32 +54,58 @@
 
 
 
-;Part 2: to be connected later after few fixes
+;[2]: to be connected later after few fixes
 ;temporary numList (this will come from above rand generated 6 nums)
 (define numList (list 1 2 3 4 5 6))
-;temp permutation of numList
-(define l (permutations numList))
 ;temp operator list (to be done: permutations of cartesian product)
 (define opList '(+ - * / +))
+;temp permutation of numList
+(define l (permutations numList))
 
 ;temp target number
 (define tarNum 6)
 
-;below i'm defining an equation in format of:
-; (+ (* 1 2) 1
+;counter to check if it's going accordingly to calculation
+(define counter 0)
 
 (define ns (make-base-namespace))
 
-(define string
-  (quasiquote
-   ( (unquote(car(cdr opList))) ( (unquote(car opList)) (unquote(car numList)) (unquote(car (cdr numList)))) (unquote(list-ref numList 2)))
-   )
+;below i'm defining an equation in format of:
+; (+ (/ (* (- (+ 1 2) 3) 4) 5) 6)
+
+(define (equation permList)
+ (if (null? permList)
+     0
+      (begin
+   (if (= (eval (quasiquote
+((unquote(car(cdr(cdr(cdr(cdr opList))))))
+  ((unquote(car(cdr(cdr(cdr opList)))))
+   ((unquote(car(cdr(cdr opList))))
+    ((unquote(car(cdr opList)))
+     ((unquote(car opList)) (unquote(list-ref (list-ref permList 0) 0)) (unquote(list-ref (list-ref permList 0) 1)))
+     (unquote(list-ref (list-ref permList 0) 2)))
+    (unquote(list-ref (list-ref permList 0) 3)))
+   (unquote(list-ref (list-ref permList 0) 4)))
+  (unquote(list-ref (list-ref permList 0) 5)))
+) ns) tarNum)
+      (set! counter (+ 1 counter))
+      0
+      )
+   ;(set! counter (+ 1 counter))
+   (equation (cdr permList))
   )
-;running string function to display the equation in above specified format
-string
+  )
+ );end if
+
+;running equation function with permutations of permList (l)
+(equation l)
+;counter to see if it's correct.
+counter
+
+
 ;evaluating the equation (this specific version will equal to 0 and so it does)
-(eval string ns)
+;(eval string ns)
 ;saying what the string func evaluates
-(quasiquote (string is equal to: (unquote (eval string ns))))
+;(quasiquote (string is equal to: (unquote (eval string ns))))
 
 
