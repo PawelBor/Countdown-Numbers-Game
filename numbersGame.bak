@@ -67,19 +67,9 @@
 
 ;below i'm defining an equation in format of:
 ; (+ (* 1 2) 1
-
-(define ns (make-base-namespace))
-
+;
 (define string
   (quasiquote
    ( (unquote(car(cdr opList))) ( (unquote(car opList)) (unquote(car numList)) (unquote(car (cdr numList)))) (unquote(list-ref numList 2)))
    )
   )
-;running string function to display the equation in above specified format
-string
-;evaluating the equation (this specific version will equal to 0 and so it does)
-(eval string ns)
-;saying what the string func evaluates
-(quasiquote (string is equal to: (unquote (eval string ns))))
-
-
