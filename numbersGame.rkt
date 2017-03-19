@@ -1,7 +1,7 @@
 #lang racket
 
 ;List of numbers used in Countdown Game
-(define numList (list 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 25 50 75 100))
+(define numbList (list 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 25 50 75 100))
 
 ;Generate Random Number between 101 and 999
 ;define rand function, call the "random" library function, give it range min max.
@@ -28,10 +28,10 @@
 ; If the list is empty set it to null.
 ;Then assign using "set!". Call "randomNumber", using cons, "glue" the elements together and assign them to "randSix" using "set!"
 ; If the length of "randSix" list is = 6 set it to randSIx.
-;Append elements from "rand-element" numList to the "randSix" list.
+;Append elements from "rand-element" numbList to the "randSix" list.
 ;permutate the 6 elements required for the game.
 (define randSix(list))
-(define (rand-element (list numList))
+(define (rand-element (list numbList))
   (define randomNumber (list-ref list (random (length list))))
   (if(null? list)
      null
@@ -51,4 +51,25 @@
 
 ;;https://docs.racket-lang.org/htdp-langs/beginner.html
 ;http://stackoverflow.com/questions/4174839/random-function-in-scheme
-  
+
+
+
+;Part 2: to be connected later after few fixes
+;temporary numList (this will come from above rand generated 6 nums)
+(define numList (list 1 2 3 4 5 6))
+;temp permutation of numList
+(define l (permutations numList))
+;temp operator list (to be done: permutations of cartesian product)
+(define opList '(+ - * / +))
+
+;temp target number
+(define tarNum 6)
+
+;below i'm defining an equation in format of:
+; (+ (* 1 2) 1
+;
+(define string
+  (quasiquote
+   ( (unquote(car(cdr opList))) ( (unquote(car opList)) (unquote(car numList)) (unquote(car (cdr numList)))) (unquote(list-ref numList 2)))
+   )
+  )
