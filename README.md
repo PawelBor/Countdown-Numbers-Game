@@ -12,3 +12,12 @@
 As part of Theory of Algorithms module we have been asked to re-create a very popular Countdown Numbers Game in Racket Functional programming language. Countdown first aired on British Channel 4 in 1982. </br>
 During the number part of the game the contestants had to combine 6 randomly selected numbers to get as close as possible to a randomly generated total. </br>
 Note that the contestants were using just the 4: **+ - / x** arithmetic operators. 
+
+##Permutations of Numbers
+6 Numbers will equal to 720 possible permutations
+
+##Cartesian Product
+Example of cartesian product of 4 operators and 5 numbers in this situation
+```
+A×BA×B == {+,−,/,∗}×{1,2,3,4,5}{+,−,/,∗}×{1,2,3,4,5} ==  {(+,1),(+,2),(+,3),(+,4),(+,5),(−,1),(−,2),(−,3),(−,4),(−,5),(/,1),(/,2),(/,3),(/,4),(/,5),(∗,1),(∗,2),(∗,3),(∗,4),(∗,5)}
+```
