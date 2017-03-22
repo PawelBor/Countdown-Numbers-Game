@@ -65,6 +65,11 @@
 ;temp target number
 (define tarNum 6)
 
+;Generating 5 operators from a list of 4 using cartesian-product
+(define ops '(+ - / *))
+
+(define all-ops(cartesian-product ops ops ops ops ops))
+
 ;counter to check if it's going accordingly to calculation
 (define counter 0)
 
