@@ -83,11 +83,11 @@
      0
       (begin
    (if (= (eval (quasiquote
-((unquote(car(cdr(cdr(cdr(cdr opList))))))
-  ((unquote(car(cdr(cdr(cdr opList)))))
-   ((unquote(car(cdr(cdr opList))))
-    ((unquote(car(cdr opList)))
-     ((unquote(car opList)) (unquote(list-ref (list-ref permList 0) 0)) (unquote(list-ref (list-ref permList 0) 1)))
+((unquote(list-ref opList 4))
+  ((unquote(list-ref opList 3))
+   ((unquote(list-ref opList 2))
+    ((unquote(list-ref opList 1))
+     ((unquote(list-ref opList 0)) (unquote(list-ref (list-ref permList 0) 0)) (unquote(list-ref (list-ref permList 0) 1)))
      (unquote(list-ref (list-ref permList 0) 2)))
     (unquote(list-ref (list-ref permList 0) 3)))
    (unquote(list-ref (list-ref permList 0) 4)))
