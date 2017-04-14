@@ -81,26 +81,38 @@
 (define (equation permList)
  (if (null? permList)
      0
-      (begin
-   (if (= (eval (quasiquote
-((unquote(list-ref opList 4))
-  ((unquote(list-ref opList 3))
-   ((unquote(list-ref opList 2))
-    ((unquote(list-ref opList 1))
-     ((unquote(list-ref opList 0)) (unquote(list-ref (list-ref permList 0) 0)) (unquote(list-ref (list-ref permList 0) 1)))
-     (unquote(list-ref (list-ref permList 0) 2)))
-    (unquote(list-ref (list-ref permList 0) 3)))
-   (unquote(list-ref (list-ref permList 0) 4)))
-  (unquote(list-ref (list-ref permList 0) 5)))
-) ns) tarNum)
-      (set! counter (+ 1 counter))
-      0
+     (printf "...")
+     ;(opseq all-ops permList)
+  )
+)
+
+(define (opseq all-ops permList)
+ (if (null? all-ops)
+    0
+    (begin
+      (if (=
+           (eval
+            (quasiquote
+             ((unquote(list-ref(list-ref all-ops 4)4))
+              ((unquote(list-ref(list-ref all-ops 3)3))
+               ((unquote(list-ref(list-ref all-ops 2)2))
+                ((unquote(list-ref(list-ref all-ops 1)1))
+                 ((unquote(list-ref(list-ref all-ops 0)0))
+                  (unquote(list-ref (list-ref permList 0) 0))
+                  (unquote(list-ref (list-ref permList 0) 1)))
+                 (unquote(list-ref (list-ref permList 0) 2)))
+                (unquote(list-ref (list-ref permList 0) 3)))
+               (unquote(list-ref (list-ref permList 0) 4)))
+              (unquote(list-ref (list-ref permList 0) 5)))
+             ) ns) tarNum)        
+       (set! counter (+ 1 counter))
+       0
       )
-   ;(set! counter (+ 1 counter))
-   (equation (cdr permList))
-  )
-  )
- );end if
+      (opseq (cdr all-ops) (cdr permList))
+     )
+ )
+)
+
 
 ;running equation function with permutations of permList (l)
 (equation l)
