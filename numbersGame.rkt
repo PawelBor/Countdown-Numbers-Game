@@ -9,11 +9,9 @@
   (random 101 1000))
 
 
-;Generate Random number with user input: Min/Max
-(define (inp-rand x y)
- (random x y))
+;working on thread to work while waiting for results...
+;(thread (lambda () (let loop () (display ".") (sleep 1.0) (loop))))
 
-;[1]
 ;Select random element from a list.
 ;define list "rand-element".
 ;Get the length of our list, using "random" library function get the random element from the list.
@@ -31,15 +29,13 @@
      (rand-element list))
   )
 
-(quasiquote (Six Random Numbers: (unquote (rand-element numList)) Target Number: (unquote tarNum)))
+(quasiquote (Six Random Numbers: (unquote (rand-element numList)) & Target Number: (unquote tarNum)))
+(quasiquote (Processing... Please Wait))
 
 ;;https://docs.racket-lang.org/htdp-langs/beginner.html
 ;http://stackoverflow.com/questions/4174839/random-function-in-scheme
 
-
-
-;[2]
-;temp permutation of randSix (contains 6 random numbers from numList)
+;l holds the permutations of randSix
 (define l (permutations randSix))
 
 ;Generating 5 operators from a list of 4 using cartesian-product
@@ -52,10 +48,11 @@
 
 (define ns (make-base-namespace))
 
+;Acculumator lists: accuList + equationList
 (define accuList null)
 (define equationList null)
 
-;below i'm defining an equation in format of:
+;Below i'm defining an equation in format of:
 ; (+ (/ (* (- (+ 1 2) 3) 4) 5) 6)
 
 (define (equation permList operators aList tNum)
@@ -92,10 +89,7 @@
 
 (equation l all-ops accuList tarNum)
 
-(quasiquote (All possible equation for Target Number: (unquote tarNum)))
-accuList
-(quasiquote (Brute-Force: Total equations: (unquote equationCount)))
-(quasiquote (There are: (unquote (length accuList)) possible equations for Target Number:(unquote tarNum)))
-
-
-
+(quasiquote (All possible equations using: (unquote randSix) for Target Number: (unquote tarNum)))
+(quasiquote ((unquote accuList) = (unquote tarNum)))
+(quasiquote (Used: Brute-Force: Total Tested Equations: (unquote equationCount)))
+(quasiquote (There are: (unquote (length accuList)) possible equations for Target Number:(unquote tarNum) - Process Complete.))
