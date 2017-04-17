@@ -52,24 +52,28 @@
 
 (define ns (make-base-namespace))
 
+(define accuList null)
+(define equationList null)
+
 ;below i'm defining an equation in format of:
 ; (+ (/ (* (- (+ 1 2) 3) 4) 5) 6)
 
-(define (equation permList operators)
+(define (equation permList operators aList tNum)
  (if (null? permList)
      0
-     (printf "...")
-     ;(opseq all-ops permList)
+     (begin 
+      (opseq operators permList aList tNum)
+      (equation (cdr permList) operators aList tNum)
+      )
   )
 )
 
-(define (opseq all-ops permList)
+(define (opseq all-ops permList aList tNum)
  (if (null? all-ops)
     0
     (begin
-      (if (=
-           (eval
-            (quasiquote
+      (set! equationCount (+ 1 equationCount))
+      (set! equationList (quasiquote
              ((unquote(list-ref(list-ref all-ops 0)4))
               ((unquote(list-ref(list-ref all-ops 0)3))
                ((unquote(list-ref(list-ref all-ops 0)2))
@@ -81,19 +85,17 @@
                 (unquote(list-ref (list-ref permList 0) 3)))
                (unquote(list-ref (list-ref permList 0) 4)))
               (unquote(list-ref (list-ref permList 0) 5)))
-             ) ns) tarNum)        
-       (set! equationCount (+ 1 equationCount))
-       0
-      )
-      (opseq (cdr all-ops) (cdr permList))
-     )
- )
-)
+             ))
+      (if (= (eval equationList ns) tNum)
+          (opseq (cdr all-ops) permList (set! accuList (cons equationList accuList)) tNum)
+          (opseq (cdr all-ops) permList aList tNum)))))
 
+(equation l all-ops accuList tarNum)
 
-;running equation function with permutations of permList (l)
-(equation l all-ops)
-;counter to see if it's correct.
-equationCount
+(quasiquote (All possible equation for Target Number: (unquote tarNum)))
+accuList
+(quasiquote (Brute-Force: Total equations: (unquote equationCount)))
+(quasiquote (There are: (unquote (length accuList)) possible equations for Target Number:(unquote tarNum)))
+
 
 
