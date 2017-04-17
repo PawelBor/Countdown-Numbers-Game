@@ -5,19 +5,13 @@
 
 ;Generate Random Number between 101 and 999
 ;define rand function, call the "random" library function, give it range min max.
-(define rand
+(define tarNum
   (random 101 1000))
 
 
 ;Generate Random number with user input: Min/Max
 (define (inp-rand x y)
  (random x y))
-
-;make list of all basic arithmetic operations
-;permutate all basic arithmetic operations
-(define operList '(+ - / *))
-(define arithmetic-op
-  (permutations operList))
 
 ;[1]
 ;Select random element from a list.
@@ -37,11 +31,7 @@
      (rand-element list))
   )
 
-(quasiquote (Six Random Numbers: (unquote (rand-element numList)) Target Number: (unquote rand)))
-
-;get 6 numbers
-;Run: (rand-element)
-;type: randSix - will return 6 numbers stord in randSix list.
+(quasiquote (Six Random Numbers: (unquote (rand-element numList)) Target Number: (unquote tarNum)))
 
 ;;https://docs.racket-lang.org/htdp-langs/beginner.html
 ;http://stackoverflow.com/questions/4174839/random-function-in-scheme
@@ -49,14 +39,8 @@
 
 
 ;[2]
-
-;temp operator list (to be done: permutations of cartesian product)
-(define opList '(+ - * / +))
-;temp permutation of numList
-(define l (permutations numList))
-
-;temp target number
-(define tarNum 6)
+;temp permutation of randSix (contains 6 random numbers from numList)
+(define l (permutations randSix))
 
 ;Generating 5 operators from a list of 4 using cartesian-product
 (define ops '(+ - / *))
@@ -64,14 +48,14 @@
 (define all-ops(cartesian-product ops ops ops ops ops))
 
 ;counter to check if it's going accordingly to calculation
-(define counter 0)
+(define equationCount 0)
 
 (define ns (make-base-namespace))
 
 ;below i'm defining an equation in format of:
 ; (+ (/ (* (- (+ 1 2) 3) 4) 5) 6)
 
-(define (equation permList)
+(define (equation permList operators)
  (if (null? permList)
      0
      (printf "...")
@@ -86,10 +70,10 @@
       (if (=
            (eval
             (quasiquote
-             ((unquote(list-ref(list-ref all-ops 4)4))
-              ((unquote(list-ref(list-ref all-ops 3)3))
-               ((unquote(list-ref(list-ref all-ops 2)2))
-                ((unquote(list-ref(list-ref all-ops 1)1))
+             ((unquote(list-ref(list-ref all-ops 0)4))
+              ((unquote(list-ref(list-ref all-ops 0)3))
+               ((unquote(list-ref(list-ref all-ops 0)2))
+                ((unquote(list-ref(list-ref all-ops 0)1))
                  ((unquote(list-ref(list-ref all-ops 0)0))
                   (unquote(list-ref (list-ref permList 0) 0))
                   (unquote(list-ref (list-ref permList 0) 1)))
@@ -98,7 +82,7 @@
                (unquote(list-ref (list-ref permList 0) 4)))
               (unquote(list-ref (list-ref permList 0) 5)))
              ) ns) tarNum)        
-       (set! counter (+ 1 counter))
+       (set! equationCount (+ 1 equationCount))
        0
       )
       (opseq (cdr all-ops) (cdr permList))
@@ -108,14 +92,8 @@
 
 
 ;running equation function with permutations of permList (l)
-(equation l)
+(equation l all-ops)
 ;counter to see if it's correct.
-counter
-
-
-;evaluating the equation (this specific version will equal to 0 and so it does)
-;(eval string ns)
-;saying what the string func evaluates
-;(quasiquote (string is equal to: (unquote (eval string ns))))
+equationCount
 
 
