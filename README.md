@@ -25,3 +25,16 @@ Using cartesian-product only, the length of list of 5 operators: **+ - * /**  ( 
 ```
 1024
 ```
+
+
+### More on WIKI
+[Countdown Game Wiki](https://github.com/PawelBor/Countdown-Numbers-Game/wiki) - My wiki for this project.
+Contains most of my thoughts throughout the development process.<br>
+Headings and what information is provided there.
+
+1. Home
+2. Logic Used
+3. Problems Encountered
+4. References
+5. Research
+6. Rules of the Game
