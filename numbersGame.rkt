@@ -28,8 +28,6 @@
 (quasiquote (Six Random Numbers: (unquote (rand-element numList)) & Target Number: (unquote tarNum)))
 (quasiquote (Processing... Please Wait))
 
-
-
 ;l holds the permutations of randSix
 (define l (permutations randSix))
 
@@ -50,6 +48,9 @@
 ; (+ (/ (* (- (+ 1 2) 3) 4) 5) 6)
 
 ;aList + tNum in both equation + opseq are both accumulator lists (local to function)
+;outer function - used to start program
+;checks if permList is null, if it is throws a 0 else it calls opseq function and feeds it with necessary data required in the opseq function and calls
+;itself on next (cdr) list of permutates numbers (permList)
 (define (equation permList operators aList tNum)
  (if (null? permList)
      0
@@ -60,6 +61,14 @@
   )
 )
 
+;inner function - defining the format of the equation and adding "correct" equation to list
+;correct equation means if the result of it equals the target number.
+;opseq takes in operators, number permutations list and 2 accumulator lists
+;checks if all-ops list is empty and if it isn't it begins to do up the equation with data provided from the equation function
+;equationCount simply shows how many times it happens
+;quasiquote is to make the equation and unquote within quasiquote is to actually treat it as not a comment.
+;then it evaluates if the equationList is equal to target number and if it is it adds it to a accuList that holds all equations that equal target number
+;else it repeats process with next list of operators.
 (define (opseq all-ops permList aList tNum)
  (if (null? all-ops)
     0
@@ -82,9 +91,13 @@
           (opseq (cdr all-ops) permList (set! accuList (cons equationList accuList)) tNum)
           (opseq (cdr all-ops) permList aList tNum)))))
 
+;running the program + all data display
 (equation l all-ops accuList tarNum)
-
+;displays used list of numbers and target Number
 (quasiquote (All possible equations using: (unquote randSix) for Target Number: (unquote tarNum)))
+;displays all equations that equal target number
 accuList
+;shows total equations program went through
 (quasiquote (Used: Brute-Force: Total Tested Equations: (unquote equationCount)))
+;shows how many equations equal target number in count format + shows the target number
 (quasiquote (There are: (unquote (length accuList)) different possible equations for Target Number:(unquote tarNum) - Process Complete.))
