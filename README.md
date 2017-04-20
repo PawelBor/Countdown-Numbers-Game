@@ -8,15 +8,36 @@
 **Lecturer:** Dr.Ian Mcloughlin </br>
 **Lang:** Racket
 
-#Project Overview
+# Technologies Used
+
+| Technology | Description |
+| ------------- |:-------------|
+| **GitHub**      | GitHub is a web-based Git or version control repository and Internet hosting service. It offers all of the distributed version control and source code management functionality of Git as well as adding its own features. Esentially used to document all the changes and steps that were taken during the development of the project. Containing ReadMe, few Issues and Wiki for the reposityory. |
+| **DrRacket**      | DrRacket is a graphical IDE that's integrated with Racket's vast documentation. It was used to write and execute the code and total development.      |
+| **Git** | Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. It was esentially used to communicate with my GitHub repository, store changes and push the changes to the repository as a commit.      |
+
+
+# How to Run + required software
+For this project I've used DrRacket as IDE of my choice, comes with integrated Racket documentation which was great.<br>
+It is definitely not a requirement to use it but it works very well and is user friendly.<br>
+
+*Essentially this is plug & play without any input requirement from the user as it uses Random List of Numbers and Random Target Number, this can simply be avoided by using your own list & target number rather than using the generated ones. This will be described in the following steps.*<br>
+
+1. Make sure you have IDE that supports runnign racket scripts. (***DrRacket in this case***)
+2. Download this repository or just copy & paste the contents of **numbersGame.rkt** file.
+3. Open DrRacket (or your IDE) and Import the numbersGame.rkt file by clicking File option if you decided to download the repository **OR** simply paste in the code into the DrRacket window if you decided to choose this way.
+4. Now click **RUN** in the Top-Right corner of DrRacket and wait for result to show. 
+5. Result will appear with all the results.
+
+# Project Overview
 As part of Theory of Algorithms module we have been asked to re-create a very popular Countdown Numbers Game in Racket Functional programming language. Countdown first aired on British Channel 4 in 1982. </br>
 During the number part of the game the contestants had to combine 6 randomly selected numbers to get as close as possible to a randomly generated total. </br>
 Note that the contestants were using just the 4: **+ - / x** arithmetic operators. 
 
-##Permutations of Numbers
+## Permutations of Numbers
 6 Numbers will equal to 720 possible permutations
 
-##Cartesian Product
+## Cartesian Product
 Example of cartesian product of 4 operators and 5 numbers in this situation
 ```
 A×BA×B == {+,−,/,∗}×{1,2,3,4,5}{+,−,/,∗}×{1,2,3,4,5} ==  {(+,1),(+,2),(+,3),(+,4),(+,5),(−,1),(−,2),(−,3),(−,4),(−,5),(/,1),(/,2),(/,3),(/,4),(/,5),(∗,1),(∗,2),(∗,3),(∗,4),(∗,5)}
