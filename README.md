@@ -124,6 +124,15 @@ This process is repeated for every list of operators resulting in total of:<br>
 ```
 This is a **Brute-Force** algorithm, I'm checking every possible equation this way. I completely understand that there is repeated equations that are checked and that there are equations that are negative or equal to a fraction and creating checks for this could greatly improve the execution speed but due to pressure from other modules and lack of knowledge I was limited with implementing such checks.
 
+### Actual Results (ScreenShots)
+
+**ScreenShot 1**
+![image](http://i63.tinypic.com/20qjdjs.png)
+
+**ScreenShot 2**
+![image](http://i65.tinypic.com/2monw2d.png)
+
+
 
 ### More on WIKI
 [Countdown Game Wiki](https://github.com/PawelBor/Countdown-Numbers-Game/wiki) - My wiki for this project.
