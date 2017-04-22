@@ -132,22 +132,25 @@ This is a **Brute-Force** algorithm, I'm checking every possible equation this w
 **ScreenShot 2**
 ![image](http://i65.tinypic.com/2monw2d.png)
 
-
+I talk about the results in-depth on the wiki page, follow the link below or access it through standard way.
 
 ### More on WIKI
 [Countdown Game Wiki](https://github.com/PawelBor/Countdown-Numbers-Game/wiki) - My wiki for this project.
 Contains most of my thoughts throughout the development process.<br>
 Headings and what information is provided there.
+*Note revisions*
 
 1. Home
 2. Logic Used
 3. Code
 4. Problems Encountered
 5. References
-6. Research
+6. Research + Thoughts
 7. Results and Outcomes
 8. Rules of the Game
 
+
+Hope it explains all questions regarding any part of the code to whoever might ever read this and thank you for spending time reading it. Hope it may come in handy to whoever might want to implement this game in racket. Any changes are welcome and all code is under the MIT License.
 
 ### References
 [Wikipedia - Permutation](https://en.wikipedia.org/wiki/Permutation) - Permutations Described<br>
