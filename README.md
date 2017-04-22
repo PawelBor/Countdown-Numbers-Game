@@ -141,12 +141,14 @@ Headings and what information is provided there.
 
 1. Home
 2. Logic Used
-3. Problems Encountered
-4. References
-5. Research
-6. Rules of the Game
+3. Code
+4. Problems Encountered
+5. References
+6. Research
+7. Results and Outcomes
+8. Rules of the Game
 
 
 ### References
-[1] - https://en.wikipedia.org/wiki/Permutation
-[2] - https://en.wikipedia.org/wiki/Cartesian_product
+[Wikipedia - Permutation](https://en.wikipedia.org/wiki/Permutation) - Permutations Described<br>
+[Wikipedia - Cartesian-Product](https://en.wikipedia.org/wiki/Cartesian_product) - Cartesian Product Described
