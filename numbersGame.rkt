@@ -92,7 +92,7 @@
           (opseq (cdr all-ops) permList aList tNum)))))
 
 ;running the program + all data display
-(equation l all-ops accuList tarNum)
+(time(equation l all-ops accuList tarNum))
 ;displays used list of numbers and target Number
 (quasiquote (All possible equations using: (unquote randSix) for Target Number: (unquote tarNum)))
 ;displays all equations that equal target number
