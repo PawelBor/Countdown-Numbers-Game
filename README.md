@@ -8,6 +8,17 @@
 **Lecturer:** Dr.Ian Mcloughlin </br>
 **Lang:** Racket
 
+# ReadMe Structure
+* Technologies Used
+* How to Run + required software
+* Project Overview
+  * Permutations of Numbers
+  * Cartesian Product
+* Algorithm
+* Actual Results (ScreenShots)
+* **More on WIKI**
+* References
+
 # Technologies Used
 
 | Technology | Description |
@@ -134,7 +145,7 @@ This is a **Brute-Force** algorithm, I'm checking every possible equation this w
 
 I talk about the results in-depth on the wiki page, follow the link below or access it through standard way.
 
-### More on WIKI
+### More on WIKI + WIKI Structure
 [Countdown Game Wiki](https://github.com/PawelBor/Countdown-Numbers-Game/wiki) - My wiki for this project.
 Contains most of my thoughts throughout the development process.<br>
 Headings and what information is provided there.
@@ -154,4 +165,5 @@ Hope it explains all questions regarding any part of the code to whoever might e
 
 ### References
 [Wikipedia - Permutation](https://en.wikipedia.org/wiki/Permutation) - Permutations Described<br>
-[Wikipedia - Cartesian-Product](https://en.wikipedia.org/wiki/Cartesian_product) - Cartesian Product Described
+[Wikipedia - Cartesian-Product](https://en.wikipedia.org/wiki/Cartesian_product) - Cartesian Product Described<br>
++Much More listed on Wiki.
